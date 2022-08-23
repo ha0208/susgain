@@ -3,22 +3,29 @@ package com.susgain.mapper;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.susgain.entity.Goal;
+import com.susgain.model.RedemptionItem;
 
 @Component
 public class GoalMapper {
 	
+	@Autowired
+	private RedemptionItemMapper redemptionItemMapper;
+	
 	// entity to model
 	public com.susgain.model.Goal map(Goal entity) {		
 		com.susgain.model.Goal model = new com.susgain.model.Goal();
-		model.setId(entity.getId());
-		model.setName(entity.getName());
-		model.setDescription(entity.getDescription());
-		model.setImage(entity.getImage());
-		model.setRedemptionItem(entity.getRedemptionItem());
-		model.setRedemptionCost(entity.getRedemptionCost());
+		 if(entity != null) {
+			 model.setId(entity.getId());
+			 model.setName(entity.getName());
+			 model.setDescription(entity.getDescription());
+			 model.setImage(entity.getImage());
+			 model.setRedemptionItem(redemptionItemMapper.map(entity.getRedemptionItem()));
+			 model.setRedemptionCost(entity.getRedemptionCost());
+		}
 		return model;
 	}
 		
@@ -33,12 +40,14 @@ public class GoalMapper {
 	// model to entities 
 	public Goal map(com.susgain.model.Goal model) {
 		Goal entity = new Goal();
-		entity.setId(model.getId());
-		entity.setName(model.getName());
-		entity.setDescription(model.getDescription());
-		entity.setImage(model.getImage());
-		entity.setRedemptionItem(model.getRedemptionItem());
-		entity.setRedemptionCost(model.getRedemptionCost());
+		 if(model != null) {
+			 entity.setId(model.getId());
+			 entity.setName(model.getName());
+			 entity.setDescription(model.getDescription());
+			 entity.setImage(model.getImage());
+			 entity.setRedemptionItem(redemptionItemMapper.map(model.getRedemptionItem()));
+			 entity.setRedemptionCost(model.getRedemptionCost());
+		}
 		return entity;
 	}
 	
