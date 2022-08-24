@@ -4,6 +4,8 @@ spring:
     url: jdbc:mysql://localhost:3306/susgaindatabase
     username: root
     password: 
+  main:
+       allow-circular-references: true  
   jpa:
     show-sql: true
     hibernate:

@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.susgain.model.Goal;
-import com.susgain.service.GoalService;
+import com.susgain.service.IGoalService;
 
 @RestController
 @RequestMapping("/api/goal")
 public class GoalController {
 	
 	@Autowired
-	private GoalService goalService;
+	private IGoalService goalService;
 
 	@PostMapping("/add")
 	public Goal addGoal(@RequestBody Goal goalModel) {

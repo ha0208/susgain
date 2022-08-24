@@ -13,7 +13,7 @@ public class Goal {
 	private String name;
 	private String description;
 	private Blob image;
-	private int redemptionItem;
+	private RedemptionItem redemptionItem;
 	private double redemptionCost;
 
 }
