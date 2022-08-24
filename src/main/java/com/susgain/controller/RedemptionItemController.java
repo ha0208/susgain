@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.susgain.model.RedemptionItem;
-import com.susgain.service.RedemptionItemService;
+import com.susgain.service.IRedemptionItemService;
 
 @RestController
-@RequestMapping(value="/api/item")
+@RequestMapping(value="/api/redemption-item")
 public class RedemptionItemController {
 	
 	@Autowired
-	RedemptionItemService redemptionItemService;
+	IRedemptionItemService redemptionItemService;
 	
 	@PostMapping("/add")
 	public RedemptionItem addRedemptionItem(@RequestBody RedemptionItem redemptionItem) {
@@ -39,7 +39,7 @@ public class RedemptionItemController {
 	 
 	@PutMapping("/update")
 	public RedemptionItem updateRedemptionItem(@RequestBody RedemptionItem redemptionItem) {
-	  return redemptionItemService.updateRedemptionItem(redemptionItem);
+		return redemptionItemService.updateRedemptionItem(redemptionItem);
 	}
 
 }
